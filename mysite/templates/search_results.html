@@ -1,0 +1,25 @@
+<!-- search_results.html -->
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과 입니다!</title>
+</head>
+<body>
+    <h1>검색 결과 입니다!</h1>
+    <ul>
+        {% for product in outputDB %}
+            <li>
+                <h2>{{ product.Pd_Name }}</h2>
+                <img src="{{ product.Pd_IMG }}" alt="Product Image">
+                <a href="{{ product.Pd_URL }}"> 링크는 이쪽 !</a>
+                <p>Market: {{ product.Pd_Market }}</p>
+                <p>Category: {{ product.Pd_Category }}</p>
+                <p>Price: {{ product.Pd_Price }} 원 </p>
+            </li>
+        {% empty %}
+            <li>No results found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
